@@ -1,0 +1,58 @@
+﻿@*<h1>This is Home page</h1>
+    <custom-email my-link="zakirdevr@gmail.com"></custom-email>
+    <big>This is Big Tag Helper "For Tag"</big>
+    <p big>This is Big Tag Helper "For Attribute"</p>
+    <big class="big">This is Big Tag Helper "For Tag and Attribute Both"</big>*@
+
+<div class="jumbotron text-center mt-0">
+    <h1 class="display-4">Digital Library</h1>
+    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+    <hr class="my-4">
+    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <a class="btn btn-primary btn-lg" asp-controller="Book" asp-action="GetAllBooks" role="button">Library</a>
+</div>
+
+
+@*View Component Start*@
+<div class="container">
+    <h1>Top Books</h1>
+    <hr />
+@*@await Component.InvokeAsync("TopBooks", new {count=3})*@
+    <vc:top-books count="3"></vc:top-books>
+</div>
+
+
+@*View Component End*@
+
+
+@* Just Partial View Start*@
+<!--<div class="container">
+    <h1>Top Books</h1>
+    <div class="row">
+
+        <div class="col">
+            <partial name="_bookThumbnail" model="new BookModel()" />--> @*Recommend*@
+        <!--</div>
+        <div class="col">-->
+            @*<partial name="_bookThumbnail" model="new BookModel()" />*@
+            @*  @Html.Partial("_bookThumbnail", new BookModel()) *@
+        <!--</div>
+        <div class="col">-->
+            @*<partial name="_bookThumbnail" model="new BookModel()" />*@
+            @*  @await Html.PartialAsync("_bookThumbnail", new BookModel()) *@
+        <!--</div>
+        <div class="col">-->
+            @*<partial name="_bookThumbnail" model="new BookModel()" />*@
+            @*   @{
+            Html.RenderPartial("_bookThumbnail", new BookModel());
+        } *@
+        <!--</div>
+        <div class="col">-->
+            @*<partial name="_bookThumbnail" model="new BookModel()" />*@
+            @*   @{
+            await Html.RenderPartialAsync("_bookThumbnail", new BookModel());
+        } *@
+        <!--</div>
+    </div>
+</div>-->
+@* Just Partial View End*@

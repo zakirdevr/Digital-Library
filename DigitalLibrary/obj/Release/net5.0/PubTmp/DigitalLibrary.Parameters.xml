@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="DigitalLibrary20210517070401" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^J:\\Dot\ Net\ MVC\\DigitalLibrary\\obj\\Release\\net5\.0\\PubTmp\\Out\\$" />
+  </parameter>
+</parameters>

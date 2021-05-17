@@ -1,0 +1,177 @@
+﻿@model BookModel
+@inject DigitalLibrary.Repository.ILanguageRepository _languageRepository
+<div class="container">
+
+    @if (ViewBag.IsSuccess == true)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Congratulations!</strong> Your book added successfully. <a asp-controller="Book" asp-action="GetBookById" asp-route-id="@ViewBag.BookId">Click</a> here for details.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+
+    <h1>Add New Book</h1>
+    <hr />
+    <form method="post" enctype="multipart/form-data"
+          asp-controller="Book" asp-action="AddNewBook">
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="Title"></label>
+            <input type="text" asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Author"></label>
+            <input type="text" asp-for="Author" class="form-control" />
+            <span asp-validation-for="Author" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description"></label>
+            <textarea rows="3" asp-for="Description" class="form-control"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Category"></label>
+            <input type="text" asp-for="Category" class="form-control" />
+            <span asp-validation-for="Category" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="LanguagesId"></label>
+            <select asp-for="LanguagesId" class="form-control" asp-items=" (await _languageRepository.GetAllLanguage()).Select(x=> new SelectListItem() {Text=x.Name, Value=x.Id.ToString() })">
+                <option value="">Select Language</option>
+            </select>
+            <span asp-validation-for="LanguagesId" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group">
+            <label asp-for="TotalPage"></label>
+            <input type="number" asp-for="TotalPage" class="form-control" />
+            <span asp-validation-for="TotalPage" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="CoverPhoto"></label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                </div>
+                <div class="custom-file">
+                    <input asp-for="CoverPhoto" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                </div>
+            </div>
+            <span asp-validation-for="CoverPhoto" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="GalleryFiles"></label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                </div>
+                <div class="custom-file">
+                    <input asp-for="GalleryFiles" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                </div>
+            </div>
+            <span asp-validation-for="GalleryFiles" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="BookPdf"></label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                </div>
+                <div class="custom-file">
+                    <input asp-for="BookPdf" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                </div>
+            </div>
+            <span asp-validation-for="BookPdf" class="text-danger"></span>
+        </div>
+        <button class="btn btn-primary">Add Book</button>
+    </form>
+</div>
+<br />
+<br />
+<br />
+
+@section AddBook{
+
+    <script>
+        $(document).ready(function () {
+            $('.custom-file-input').on("change", function () {
+                var fileLabel = $(this).next('.custom-file-label');
+                var files = $(this)[0].files;
+                if (files.length > 1) {
+                    fileLabel.html(files.length + ' files selected');
+                }
+                else if (files.length == 1) {
+                    fileLabel.html(files[0].name);
+                }
+            });
+        });
+    </script>
+
+}
+@*@section ForAjax{
+    <script>
+        function myComplete() {
+            alert("Completed")
+        }
+        function mySuccess() {
+            alert("Success")
+        }
+        function myFailure() {
+            alert("Failed")
+        }
+
+    </script>
+    }*@
+
+@*<div class="form-group">
+        <label asp-for="LanguageId"></label>
+        <select asp-for="LanguageId" class="form-control" asp-items="new SelectList(ViewBag.Language)">
+            <option value="">Select Language</option>
+        </select>
+        <span asp-validation-for="LanguageId"></span>
+    </div>*@
+
+@*<div class="form-group">
+        <label asp-for="LanguageId"></label>
+        <select asp-for="LanguageId" class="form-control">
+            <option value="">Select Language</option>
+            <option>English</option>
+            <option>Bengali</option>
+            <option>Hindi</option>
+            <option>Urdu</option>
+            <option>Arabic</option>
+        </select>
+        <span asp-validation-for="LanguageId"></span>
+    </div>*@
+
+@*<div class="form-group">
+        <label asp-for="MyField"></label>
+        <input asp-for="MyField" class="form-control" />
+        <span asp-validation-for="MyField" class="text-danger"></span>
+    </div>*@
+
+@*<div class="d-flex justify-content-center">
+        <div class="spinner-border" id="myLoading" role="status" style="display:none;">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>*@
+
+@*data-ajax="true"
+    data-ajax-complete="myComplete"
+    data-ajax-success="mySuccess"
+    data-ajax-failure="myFailure"
+    data-ajax-loading="#myLoading"*@

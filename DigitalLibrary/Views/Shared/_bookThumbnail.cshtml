@@ -1,0 +1,18 @@
+﻿@model BookModel
+
+<div class="card" style="width: 18rem;">
+
+    <img src=@(String.IsNullOrEmpty(Model.CoverPhotoUrl) ? "/images/default.jpg" : Model.CoverPhotoUrl) class="card-img-top" alt="Coverphoto">
+    <div class="card-body">
+        <h5 class="card-title">@(String.IsNullOrEmpty(Model.Title)? "No Title": Model.Title)</h5>
+        <p class="card-text">@(String.IsNullOrEmpty(Model.Description)? "No Description": Model.Description)</p>
+
+        <div class="btn-group">
+            <a asp-route="bookDetailsRoute" asp-route-id="@Model.Id"
+               class="btn btn-sm btn-outline-primary">View details</a>
+        </div>
+        <small class="text-muted ml-5">@(string.IsNullOrEmpty(Model.Author) ? "NA" : Model.Author)</small>
+
+    </div>
+</div>
+<br />
