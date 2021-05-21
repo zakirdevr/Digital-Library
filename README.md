@@ -1,5 +1,5 @@
 # Digital-Library
-This is a ASP.NET Core 5 (.NET 5) MVC web app. In this app I have use full MVC pattern, Repository pattern, Authentication, EntityFramework Core, LINQ, Identity Framework Core, C#, JQuery, HTML, CSS, Bootstrap, Microsoft SQL Server (MSSSQL), Razor pages etc. You can upload Cover photo, Gallery Images and specially PDF file and read it.
+This is an ASP.NET Core 5 (.NET 5) MVC web app. In this app, I have used full MVC pattern, Repository pattern, Authentication, EntityFramework Core, LINQ, Identity Framework Core, C#, JQuery, HTML, CSS, Bootstrap, Microsoft SQL Server (MS SQL), Razor pages, etc. You can upload a Cover photo, Gallery Images, and especially a PDF file and read it.
 
 ![Homepage](https://user-images.githubusercontent.com/68065676/119132253-4efea180-ba5c-11eb-97d1-7609603d2656.png)
 ![AllBooks](https://user-images.githubusercontent.com/68065676/119132274-532abf00-ba5c-11eb-8bb5-f42248d6b725.png)
