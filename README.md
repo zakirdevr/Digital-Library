@@ -15,4 +15,5 @@ This is an ASP.NET Core 5 (.NET 5) MVC web app. In this app, I have used full MV
 ![EmailSent](https://user-images.githubusercontent.com/68065676/119132381-6f2e6080-ba5c-11eb-8add-7ce48e9ff3ae.PNG)
 ![ForgotPassword](https://user-images.githubusercontent.com/68065676/119132384-6fc6f700-ba5c-11eb-88a5-6be33a355b6b.PNG)
 ![Login](https://user-images.githubusercontent.com/68065676/119132386-6fc6f700-ba5c-11eb-8b1d-48bbb3cfe3bb.PNG)
-
+![BookDatabase](https://user-images.githubusercontent.com/68065676/119362861-fbe05500-bcce-11eb-9b42-4801b86c2c3b.PNG)
+![UserDatabase](https://user-images.githubusercontent.com/68065676/119362853-fa169180-bcce-11eb-96fd-14d24084e75c.PNG)
